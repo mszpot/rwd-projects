@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FCC || Survey Form</title>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Michalina Szpot">
+  <meta name="description"
+        content="This is a Survey Form project for FreeCodeCamp's
+        Responsive Web Design certification.">
+  <!-- Links -->
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" id="theme" href="./styles/gray.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <main>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">
+      What do you think of this webpage? Fill out the survey below and click
+      "Submit" to share your opinion.
+    </p>
+    <form id="survey-form">
+      <!-- Name input -->
+      <p class="question">
+        1. What is your name? (required)
+      </p>
+      <fieldset>
+        <label for="name" id="name-label">
+          Name:
+        </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          autocapitalize="words"
+          required>
+      </fieldset>
+      <!-- Email input -->
+      <p class="question">
+        2. What is your email address? (required)
+      </p>
+      <fieldset>
+        <label for="email" id="email-label">
+          Email:
+        </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Enter your email address"
+          required>
+      </fieldset>
+      <!-- Number (age) input -->
+      <p class="question">
+        3. What is your age?
+      </p>
+      <fieldset>
+        <label for="number" id="number-label">
+          Age:
+        </label>
+        <input
+          id="number"
+          type="number"
+          name="age"
+          placeholder="Enter your age"
+          min="7"
+          max="120">
+      </fieldset>
+      <!-- Dropdown selection -->
+      <p class="question">
+        4. Which of the following styles do you like the most?
+      </p>
+      <fieldset>
+        <label for="dropdown">
+          Choose a style:
+        </label>
+        <select id="dropdown" onchange="swapStyle()">
+          <option value="" disabled selected>
+            Select a style to apply
+          </option>
+          <option value="gray">Gray</option>
+          <option value="dark">Dark</option>
+          <option value="rainbow">Rainbow</option>
+        </select>
+      </fieldset>
+      <!-- Radio buttons (star rating) -->
+      <p class="question">
+        5. On a scale of 1 to 5, how would you rate this page?
+      </p>
+      <fieldset>
+        <p id="rating-label">
+          Your rating:
+        </p>
+        <!-- 1 star -->
+        <label for="star-1" class="radio-label" title="Very bad">
+          <i class="material-icons">star</i>
+        </label>
+        <input
+          id="star-1"
+          type="radio"
+          name="rating"
+          value="very-bad">
+        <!-- 2 stars -->
+        <label for="star-2" class="radio-label" title="Bad">
+          <i class="material-icons">star</i>
+        </label>
+        <input
+          id="star-2"
+          type="radio"
+          name="rating"
+          value="bad">
+        <!-- 3 stars -->
+        <label for="star-3" class="radio-label" title="Average">
+          <i class="material-icons">star</i>
+        </label>
+        <input
+          id="star-3"
+          type="radio"
+          name="rating"
+          value="average"
+          checked>
+        <!-- 4 stars -->
+        <label for="star-4" class="radio-label" title="Good">
+          <i class="material-icons">star</i>
+        </label>
+        <input
+          id="star-4"
+          type="radio"
+          name="rating"
+          value="good">
+        <!-- 5 stars -->
+        <label for="star-5" class="radio-label" title="Very good">
+          <i class="material-icons">star</i>
+        </label>
+        <input
+          id="star-5"
+          type="radio"
+          name="rating"
+          value="very-good">
+      </fieldset>
+      <!-- Checkboxes -->
+      <p class="question">
+        6. What features would you like to see added/changed?
+      </p>
+      <fieldset>
+        <!-- Checkbox 1 -->
+        <label for="feat-names" class="checkbox-label">
+          <input
+            id="feat-names"
+            type="checkbox"
+            name="features"
+            value="feat-names">
+            Seperate fields for first and last names
+        </label>
+        <!-- Checkbox 2 -->
+        <label for="feat-birthdate" class="checkbox-label">
+          <input
+            id="feat-birthdate"
+            type="checkbox"
+            name="features"
+            value="feat-birthdate">
+            Birth date selection instead of age input
+        </label>
+        <!-- Checkbox 3 -->
+        <label for="feat-styles" class="checkbox-label">
+          <input
+            id="feat-styles"
+            type="checkbox"
+            name="features"
+            value="feat-styles">
+            More styles to choose from
+        </label>
+        <!-- Checkbox 4 -->
+        <label for="feat-font" class="checkbox-label">
+          <input
+            id="feat-font"
+            type="checkbox"
+            name="features"
+            value="feat-font">
+            Different fonts
+        </label>
+        <!-- Checkbox 5 -->
+        <label for="feat-background" class="checkbox-label">
+          <input
+            id="feat-background"
+            type="checkbox"
+            name="features"
+            value="feat-background">
+            More interesting background
+        </label>
+        <!-- Checkbox 6 -->
+        <label for="feat-clear" class="checkbox-label">
+          <input
+            id="feat-clear"
+            type="checkbox"
+            name="features"
+            value="feat-clear">
+            Button to quickly clear out the form
+        </label>
+        <!-- Checkbox 7 -->
+        <label for="feat-submit" class="checkbox-label">
+          <input
+            id="feat-submit"
+            type="checkbox"
+            name="features"
+            value="feat-submit">
+            Larger "Submit" button
+        </label>
+      </fieldset>
+      <!-- Text area (comments) -->
+      <p class="question">
+        7. Do you have any other suggestions or comments?
+      </p>
+      <fieldset>
+        <textarea
+          name="comment"
+          cols="35"
+          rows="7"
+          maxlength="250"
+          placeholder="Write your suggestion/comment here..."></textarea>
+      </fieldset>
+      <!-- Submit button -->
+      <input
+        id="submit"
+        type="submit"
+        name="submit"
+        value="Submit">
+    </form>
+  </main>
+
+  <!-- Style selection script -->
+  <script>
+    function swapStyle() {
+      // Get value of selected dropdown option
+      let style = document.getElementById("dropdown").value;
+      // Change the 'theme' style to selected
+      document.getElementById("theme")
+        .setAttribute("href", "./styles/" + style + ".css");
+    }
+  </script>
+</body>
+
+</html>
