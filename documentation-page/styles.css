@@ -1,0 +1,381 @@
+/* Styles FCC Documentation Page */
+/* Color variables */
+:root {
+  --blue-dark: #06d;
+  --blue-light: #08f;
+  --dark-1: #111;
+  --dark-2: #222;
+  --dark-3: #333;
+  --light-1: #eee;
+  --light-2: #ddd;
+  --light-3: #888;
+}
+
+/* HTML */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+  /* space for the banner */
+  scroll-padding-top: 4.5rem;
+}
+
+/* Body */
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Helvetica", sans-serif;
+}
+
+body.dark-mode {
+  background-color: var(--dark-1);
+  color: #fff;
+}
+
+/* Main and sections */
+#main-doc {
+  padding: 1rem min(3vw, 60px);
+}
+
+section,
+p {
+  padding: 0.5rem 0;
+}
+
+/* Headings, paragraphs, text */
+h1 {
+  font-size: calc(2rem + 0.5vw);
+}
+
+h2 {
+  border-bottom: 1px solid var(--dark-1);
+}
+
+h1,
+h2 {
+  padding: 0.25rem 0;
+}
+
+p,
+li,
+td,
+code {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+/* dark mode */
+body.dark-mode h2 {
+  border-color: var(--light-3);
+}
+
+/* Links (anchor elements) */
+a {
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+a:hover:not(a.nav-link, #logo) {
+  text-decoration: underline;
+}
+
+/* dark mode */
+body.dark-mode a {
+  color: var(--blue-light);
+}
+
+/* Lists */
+ol {
+  /* same as #main-doc + 0.5rem */
+  padding-left: calc(min(3vw, 50px) + 0.5rem);
+}
+
+ol li:not(li:last-of-type) {
+  padding-bottom: 0.5rem;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+table caption {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+}
+
+td,
+th {
+  border: 1px solid var(--dark-1);
+  padding: 0.25rem 0.5rem;
+}
+
+th {
+  background-color: var(--light-1);
+}
+
+/* dark mode */
+body.dark-mode td,
+body.dark-mode th {
+  border-color: var(--light-3);
+}
+
+body.dark-mode th {
+  background-color: var(--dark-2);
+}
+
+/* Code snippets */
+.exp {
+  font-family: "Courier New", Courier, monospace;
+  padding: 0 0.25rem;
+}
+
+.example,
+.exp {
+  background-color: var(--light-2);
+  border-radius: 0.25rem;
+}
+
+/* example divs */
+.example {
+  box-shadow: 0 0 3px #000;
+  padding-bottom: 0.5rem;
+  margin: 1rem 0;
+}
+
+.example .exp {
+  display: block;
+  padding-left: 0.5rem;
+}
+
+.example .exp:first-of-type {
+  padding-top: 0.5rem;
+}
+
+.example p {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--dark-1);
+}
+
+/* dark mode */
+body.dark-mode .example,
+body.dark-mode .exp {
+  background-color: var(--dark-3);
+}
+
+body.dark-mode .example p {
+  border-color: var(--light-3);
+}
+
+/* Header */
+/* Banner */
+#banner {
+  /* position and size */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 1rem;
+  width: 100%;
+  /* flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* decoration */
+  background-color: var(--light-1);
+  box-shadow: 0 0 5px #000;
+}
+
+/* dark mode */
+body.dark-mode #banner {
+  background-color: var(--dark-2);
+}
+
+/* Logo */
+#logo {
+  /* flexbox */
+  display: flex;
+  align-items: center;
+  column-gap: 2vw;
+  /* width - subtract space for buttons */
+  width: calc(100% - 8.5rem);
+}
+
+#logo-text {
+  /* display */
+  display: inline-block;
+  overflow: hidden;
+  text-wrap: nowrap;
+  /* font */
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  font-style: oblique;
+}
+
+/* hide logo text on small screens */
+@media screen and (max-width: 425px) {
+  #logo-text {
+    opacity: 0;
+  }
+}
+
+/* Buttons */
+#buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+button {
+  font-size: 1.5rem;
+  height: 2rem;
+  background-color: var(--blue-light);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+}
+
+button:hover {
+  background-color: var(--blue-dark);
+}
+
+#menu-button {
+  width: 2rem;
+}
+
+#switch-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 1.2rem;
+  width: 5rem;
+  /* slider positioning */
+  position: relative;
+}
+
+#slider {
+  /* position */
+  position: absolute;
+  left: 3.25rem;
+  /* size */
+  width: 1.5rem;
+  height: 1.5rem;
+  /* decoration */
+  background-color: #fff;
+  box-shadow: 0 0 4px #000;
+  border-radius: 100%;
+  /* animation */
+  transition: 0.5s;
+}
+
+/* dark mode */
+body.dark-mode #slider {
+  transform: translateX(-3rem);
+}
+
+/* Navigation */
+nav {
+  /* position and size */
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 100%;
+  /* decoration */
+  background-color: var(--light-1);
+  box-shadow: 0 0 5px #000;
+}
+
+/* class applied to hidden navbar */
+.hidden {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.nav-link {
+  display: block;
+  border-bottom: 1px solid var(--dark-1);
+}
+
+.nav-link:hover {
+  background-color: var(--light-2);
+}
+
+/* padding */
+#navbar h2,
+.nav-link {
+  padding: 0.5rem 1rem;
+}
+
+/* dark mode */
+body.dark-mode #navbar {
+  background-color: var(--dark-2);
+}
+
+body.dark-mode .nav-link {
+  border-color: var(--light-3);
+}
+
+body.dark-mode .nav-link:hover {
+  background-color: var(--dark-3);
+}
+
+/* Wide screens */
+@media screen and (min-width: 769px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "navbar main";
+  }
+
+  /* Main */
+  #main-doc {
+    grid-area: main;
+  }
+
+  /* Header */
+  #banner {
+    grid-area: header;
+  }
+
+  #logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* hide navbar menu button (navbar always visible) */
+  #menu-button {
+    display: none;
+  }
+
+  /* Navigation */
+  #navbar {
+    grid-area: navbar;
+    position: sticky;
+    top: 4rem;
+    padding-top: 1rem;
+    /* height - subtract value of top */
+    height: calc(100vh - 4rem);
+    border-right: 1px solid var(--dark-1);
+    box-shadow: none;
+  }
+
+  /* dark mode */
+  body.dark-mode #navbar {
+    border-color: var(--light-3);
+  }
+}
