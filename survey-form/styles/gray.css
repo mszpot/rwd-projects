@@ -1,0 +1,36 @@
+/* Gray theme */
+body {
+  background-color: #ccc;
+  color: #111;
+}
+
+form {
+  background-color: #fff;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #777;
+  color: #222;
+  accent-color: #222;
+}
+
+.radio-label {
+  color: #222;
+}
+
+fieldset:hover .radio-label:hover {
+  text-shadow: 0 0 3px #111;
+}
+
+.question,
+#submit {
+  background-color: #ddd;
+  border: 1px solid #555;
+  box-shadow: 0 0 2px #555;
+}
+
+#submit:hover {
+  background-color: #bbb;
+}
