@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>FCC || Technical Documentation Page</title>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="author" content="Michalina Szpot">
+  <meta
+    name="description"
+    content="This is a Technical Documentation Page project for FreeCodeCamp's
+    Responsive Web Design certification.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <!-- Link to styles -->
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Favicon generated on favicon.io -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon.png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+</head>
+
+<body onload="screensizeMenu()" onresize="screensizeMenu()">
+  <!-- Header -->
+  <header id="banner">
+    <!-- Logo -->
+    <a id="logo" href="./index.html" title="Home" aria-label="Home">
+      <picture id="logo-img" aria-hidden="true">
+        <source 
+          srcset="./icons/favicon_lg.png 192w"
+          media="(min-width: 1500px)">
+          <img 
+          src="./icons/favicon.png"
+          alt=""
+          aria-hidden="true"
+          width="32" height="32">
+      </picture>
+      <span id="logo-text">
+        Technical Documentation Page
+      </span>
+    </a>
+    <div id="buttons">
+      <!-- Dark/light mode button -->
+      <button
+        id="switch-button"
+        type="button"
+        title="Switch Mode"
+        aria-hidden="true"
+        onclick="switchMode()">
+        <img src="./icons/sun-regular.svg" alt="">
+        <img src="./icons/moon-regular.svg" alt="">
+        <span id="slider"></span>
+      </button>
+      <!-- Menu button -->
+      <button 
+        id="menu-button" 
+        type="button" 
+        title="Menu" aria-label="Menu"
+        onclick="toggleMenu()">
+        &#8801;
+      </button>
+    </div>
+  </header>
+  <!-- Navigation -->
+  <nav id="navbar" class="hidden">
+    <header>
+      <h2>Page Content</h2>
+    </header>
+    <a class="nav-link" href="#attribution">
+      Attribution
+    </a>
+    <a class="nav-link" href="#introduction">
+      Introduction
+    </a>
+    <a class="nav-link" href="#creating_regular_expressions">
+      Creating Regular Expressions
+    </a>
+    <a class="nav-link" href="#using_regular_expressions">
+      Using Regular Expressions
+    </a>
+    <a class="nav-link" href="#simple_patterns">
+      Simple Patterns
+    </a>
+    <a class="nav-link" href="#regex_flags">
+      Regex Flags
+    </a>
+    <a class="nav-link" href="#special_characters">
+      Special Characters
+    </a>
+    <a class="nav-link" href="#escaping">
+      Escaping
+    </a>
+    <a class="nav-link" href="#learn_more">
+      Learn More
+    </a>
+  </nav>
+  <!-- Main content -->
+  <main id="main-doc">
+    <h1 id="title">Regular Expressions in JavaScript</h1>
+    <!-- Section: Attribution -->
+    <section id="attribution">
+      <header>
+        <h2>Attribution</h2>
+      </header>
+      <p>
+        The content of this page has been adapted from
+        <a href="https://developer.mozilla.org/en-US/">
+          MDN Web Docs</a>:
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions">
+          Regular expressions (guide)</a> and 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions">
+          Regular expressions (reference)</a> by 
+        <a href="https://developer.mozilla.org/en-US/docs/MDN/Community/Roles_teams#contributor">
+          Mozilla Contributors</a> licensed under 
+        <a href="https://creativecommons.org/licenses/by-sa/2.5/">
+          CC-BY-SA 2.5</a>.
+      </p>
+    </section>
+    <!-- Section: Introduction -->
+    <section id="introduction">
+      <header>
+        <h2>Introduction</h2>
+      </header>
+      <p>
+        <em>Regular expressions</em> (<em>regex</em> for short) allow 
+        developers to match strings against a pattern, extract submatch 
+        information, or simply test if the string conforms to that pattern. 
+        A regular expression, at its core, needs the following features:
+      </p>
+      <ul>
+        <li>
+          A set of <em>characters</em> that can be used in the language, 
+          called the <em>alphabet</em>.
+        </li>
+        <li>
+          <em>Concatenation</em>: 
+          <code><span class="exp">ab</span></code> means "the character
+          <code><span class="exp">a</span></code> followed by the character 
+          <code><span class="exp">b</span></code>".
+        </li>
+        <li>
+          <em>Union</em>: 
+          <code><span class="exp">a|b</span></code> means "either 
+          <code><span class="exp">a</span></code> or 
+          <code><span class="exp">b</span></code>".
+        </li>
+        <li>
+          <em>Kleene star</em>: 
+          <code><span class="exp">a*</span></code> means "zero or more
+          <code><span class="exp">a</span></code> characters".
+        </li>
+      </ul>
+      <p>
+        Assuming a finite alphabet (such as the 26 letters of the English 
+        alphabet, or the entire Unicode character set), all regular 
+        languages can be generated by the features above. Of course, 
+        many patterns are very tedious to express this way (such as 
+        "10 digits" or "a character that's not a space"), so JavaScript 
+        regular expressions include many shorthands.
+      </p>
+    </section>
+    <!-- Section: Creating regular expressions -->
+    <section id="creating_regular_expressions">
+      <header>
+        <h2>Creating Regular Expressions</h2>
+      </header>
+      <p>
+        A regular expression is typically created as a literal by enclosing 
+        a pattern in forward slashes ("/").
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">const regex1 = /gr(a|e)y/;</span>
+        </code>
+      </div>
+      <p>
+        Regular expressions can also be created with the 
+        <code><span class="exp">RegExp()</span></code> constructor:
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">const regex2 = new RegExp("gr(a|e)y");</span>
+        </code>
+      </div>
+      <p>
+        They have no runtime differences, although they may have 
+        implications on performance, static analyzability, and authoring 
+        ergonomic issues with escaping characters.
+      </p>
+    </section>
+    <!-- Section: Using regular expressions -->
+    <section id="using_regular_expressions">
+      <header>
+        <h2>Using Regular Expressions</h2>
+      </header>
+      <p>
+        In JavaScript, regular expressions are used with the
+        <code><span class="exp">RegExp</span></code> methods
+        <code><span class="exp">exec()</span></code> and
+        <code><span class="exp">test()</span></code> and with the
+        <code><span class="exp">String</span></code> methods
+        <code><span class="exp">match()</span></code>,
+        <code><span class="exp">matchAll()</span></code>,
+        <code><span class="exp">replace()</span></code>,
+        <code><span class="exp">replaceAll()</span></code>,
+        <code><span class="exp">search()</span></code>, and
+        <code><span class="exp">split()</span></code>.
+      </p>
+      <table>
+        <caption>
+          Table: Methods using regular expressions
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Method</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code><span class="exp">exec()</span></code>
+            </td>
+            <td>
+              Executes a search for a match in a string. It returns 
+              an array of information or 
+              <code><span class="exp">null</span></code> on a mismatch.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">test()</span></code>
+            </td>
+            <td>
+              Tests for a match in a string. It returns 
+              <code><span class="exp">true</span></code> or 
+              <code><span class="exp">false</span></code>.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">match()</span></code>
+            </td>
+            <td>
+              Returns an array containing all of the matches, 
+              including capturing groups, or 
+              <code><span class="exp">null</span></code> if no match 
+              is found.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">matchAll()</span></code>
+            </td>
+            <td>
+              Returns an iterator containing all of the matches, including 
+              capturing groups.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">replace()</span></code>
+            </td>
+            <td>
+              Executes a search for a match in a string, and replaces the 
+              matched substring with a replacement substring.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">replaceAll()</span></code>
+            </td>
+            <td>
+              Executes a search for all matches in a string, and replaces 
+              the matched substrings with a replacement substring.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">search()</span></code>
+            </td>
+            <td>
+              Tests for a match in a string. It returns the index 
+              of the match, or <code><span class="exp">-1</span></code> 
+              if the search fails.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">split()</span></code>
+            </td>
+            <td>
+              Uses a regular expression or a fixed string to break 
+              a string into an array of substrings.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- Section: Simple patterns -->
+    <section id="simple_patterns">
+      <header>
+        <h2>Simple Patterns</h2>
+      </header>
+      <p>
+        Simple patterns are constructed of characters for which you want 
+        to find a direct match.
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">const regex = /hello/;</span>
+          <br>
+          <span class="exp">const str1 = "hello world";</span>
+          <span class="exp">const str2 = "Seychellois culture";</span>
+          <span class="exp">const str3 = "shell of a crab";</span>
+        </code>
+      </div>
+      <p>
+        In the example above 
+        <code><span class="exp">regex</span></code> matches character 
+        combinations in strings only when the exact sequence
+        <code><span class="exp">"hello"</span></code> occurs (all characters 
+        together and in that order). Such a match would succeed in 
+        <code><span class="exp">str1</span></code> and
+        <code><span class="exp">str2</span></code>. In both cases the match 
+        is with the substring <code><span class="exp">"hello"</span></code>. 
+        There is no match in the string
+        <code><span class="exp">str3</span></code> because while it contains 
+        the substring <code><span class="exp">"hell o"</span></code>, 
+        it does not contain the exact substring
+        <code><span class="exp">"hello"</span></code>.
+      </p>
+    </section>
+    <!-- Section: Regex flags -->
+    <section id="regex_flags">
+      <header>
+        <h2>Regex Flags</h2>
+      </header>
+      <p>
+        Regular expressions have optional flags that allow for 
+        functionality like global searching and case-insensitive 
+        searching. These flags can be used separately or together in 
+        any order, and are included as part of the regular expression.
+      </p>
+      <table>
+        <caption>
+          Table: Regular expression flags
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Flag</th>
+            <th scope="col">Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code><span class="exp">d</span></code>
+            </td>
+            <td>
+              Generate indices for substring matches.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">g</span></code>
+            </td>
+            <td>
+              Global search.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">i</span></code>
+            </td>
+            <td>
+              Case-insensitive search.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">m</span></code>
+            </td>
+            <td>
+              Allows input boundary assertions 
+              (<code><span class="exp">^</span></code> and
+              <code><span class="exp">$</span></code>) 
+              to match newline characters.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">s</span></code>
+            </td>
+            <td>
+              Allows wildcard (<code><span class="exp">.</span></code>)
+              to match newline characters.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">u</span></code>
+            </td>
+            <td>
+              Treat a pattern as a sequence of Unicode code points.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">v</span></code>
+            </td>
+            <td>
+              Upgraded <code><span class="exp">u</span></code> flag
+              with more Unicode features.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code><span class="exp">y</span></code>
+            </td>
+            <td>
+              Perform a "sticky" search that matches starting at the 
+              current position in the target string.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        In the example below
+        <code><span class="exp">regex1</span></code> uses no flags
+        and would only match the first instance of "hello" in
+        <code><span class="exp">str</span></code>. Meanwhile,
+        <code><span class="exp">regex2</span></code> and
+        <code><span class="exp">regex3</span></code> use
+        <code><span class="exp">g</span></code> and
+        <code><span class="exp">i</span></code> flags. They are the same
+        regular expression written with different syntax and would
+        match all instances of (global search) "hello", regardless
+        of the characters' cases (case-insensitive search) in
+        <code><span class="exp">str</span></code>.
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">const regex1 = /hello/;</span>
+          <span class="exp">const regex2 = /hello/gi;</span>
+          <span class="exp">
+            const regex3 = new RegExp("hello", "gi");
+          </span>
+          <br>
+          <span class="exp">
+            const str = "Hello, hello, hElLo, hello";
+          </span>
+        </code>
+      </div>
+    </section>
+    <!-- Section: Special characters -->
+    <section id="special_characters">
+      <header>
+        <h2>Special Characters</h2>
+      </header>
+      <p>
+        When the search for a match requires something more than a direct 
+        match, such as finding one or more b's, or finding white space, 
+        you can include special characters in the pattern.
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">
+            const text = "Carrots are a source of vitamin A and potassium, 
+            as well as vitamins C, K1 and B6.";
+          </span>
+          <br>
+          <span class="exp">const regex = /([A-E]|K)\d*\b/g;</span>
+          <span class="exp">console.log(text.match(regex));</span>
+          <span class="exp">
+            // Expected output: Array ["A", "C", "K1", "B6"]
+          </span>
+        </code>
+      </div>
+      <p>Categories of special characters:</p>
+      <ol>
+        <li>
+          <em>Assertions</em> include boundaries, which indicate the 
+          beginnings and endings of lines and words, and other patterns 
+          indicating in some way that a match is possible (including 
+          look-ahead, look-behind, and conditional expressions).
+        </li>
+        <li>
+          <em>Character classes</em> distinguish between different 
+          types of characters, for example letters and digits.
+        </li>
+        <li>
+          <em>Groups</em> group multiple patterns as a whole, and 
+          <em>capturing groups</em> provide extra submatch information 
+          when using a regular expression pattern to match against 
+          a string.
+        </li>
+        <li>
+          <em>Backreferences</em> refer to a previously captured group 
+          in the same regular expression.
+        </li>
+        <li>
+          <em>Quantifiers</em> indicate numbers of characters or 
+          expressions to match.
+        </li>
+      </ol>
+    </section>
+    <!-- Section: Escaping -->
+    <section id="escaping">
+      <header>
+        <h2>Escaping</h2>
+      </header>
+      <p>
+        If you need to use any of the special characters literally, you 
+        must escape it by putting a backslash in front of it. For instance, 
+        to search for <code><span class="exp">"a"</span></code> followed by
+        <code><span class="exp">"*"</span></code> followed by
+        <code><span class="exp">"b"</span></code>, you'd use
+        <code><span class="exp">/a\*b/</span></code> - the backslash in the
+        regular expression "escapes" the 
+        <code><span class="exp">"*"</span></code> making it literal 
+        instead of special. Similarly, to match a literal backslash
+        <code><span class="exp">"\"</span></code>
+        you need to escape the backslash:
+        <code><span class="exp">/\\/</span></code>.
+      </p>
+      <p>
+        If using the <code><span class="exp">RegExp</span></code> 
+        constructor with a string literal, remember that the backslash is 
+        an escape in string literals, so to use it in the regular 
+        expression, you need to escape it at the string literal level.
+        In the example below <code><span class="exp">regex1</span></code>
+        and <code><span class="exp">regex2</span></code> are the same
+        regular expression.
+      </p>
+      <div class="example">
+        <p>Example</p>
+        <code>
+          <span class="exp">const regex1 = /a\*b/;</span>
+          <span class="exp">const regex2 = new RegExp("a\\*b");</span>
+        </code>
+      </div>
+    </section>
+    <!-- Section: Learn more -->
+    <section id="learn_more">
+      <header>
+        <h2>Learn More</h2>
+      </header>
+      <p>
+        For more information on regular expressions in JavaScript visit
+        the following pages on the MDN Web Docs webpage:
+      </p>
+      <ul>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions">
+            Regular expressions (reference)
+          </a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions">
+            Regular expressions (guide)
+          </a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions">
+            Assertions guide
+          </a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes">
+            Character classes guide
+          </a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences">
+            Groups and backreferences guide
+          </a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers">
+            Quantifiers guide
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <!-- Script -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
