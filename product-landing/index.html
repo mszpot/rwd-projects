@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>FCC || Product Landing Page</title>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="author" content="Michalina Szpot">
+  <meta
+    name="description"
+    content="This is a Product Landing Page project for FreeCodeCamp's
+    Responsive Web Design certification.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <!-- Link to styles -->
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <!-- Favicon (generated on favicon.io) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./media/favicon.png">
+  <link rel="apple-touch-icon" href="./media/apple-touch-icon.png">
+</head>
+
+<body onload="screensizeMenu()" onresize="screensizeMenu()">
+  <header id="header">
+    <!-- Logo -->
+    <a id="logo" href="./index.html" title="Home" aria-label="Home">
+      <picture id="logo-img" aria-hidden="true">
+        <source 
+          srcset="./media/favicon_lg.png 192w,
+                  ./media/favicon.png 32w"
+          sizes="(max-width: 1500px) 32px, 192px">
+        <img 
+          src="./media/favicon.png"
+          alt=""
+          aria-hidden="true"
+          width="32" height="32">
+      </picture>
+      <span id="logo-text">
+        ArtLessons
+      </span>
+    </a>
+    <!-- Navigation -->
+    <div id="button">
+      <button
+        id="nav-button"
+        type="button"
+        title="Menu" aria-label="Menu"
+        onclick="toggleMenu()">
+        &#8801;
+      </button>
+    </div>
+    <nav id="nav-bar">
+      <a class="nav-link" href="#signup">
+        Sign up
+      </a>
+      <a class="nav-link" href="#features">
+        Features
+      </a>
+      <a class="nav-link" href="#reviews">
+        Reviews
+      </a>
+      <a class="nav-link" href="#pricing">
+        Pricing
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section id="top">
+      <div id="top-content">
+        <!-- Product description -->
+        <h1>Nurture the artist within you</h1>
+        <p>
+          Do you need motivation, inspiration, or guidance to 
+          <strong>improve your drawing skills</strong>? We're here for you.
+          With <strong>ArtLessons</strong> you will gain access to 
+          <strong>over 1000 relaxing drawing lessons</strong>
+          suited for artists of <strong>any skill level</strong>.
+        </p>
+        <!-- Sign up -->
+        <p id="signup">
+          <strong>Sign up today!</strong>
+        </p>
+        <form id="form" 
+          action="https://www.freecodecamp.com/email-submit" method="post">
+          <input 
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required>
+          <input
+            class="submit"
+            type="submit"
+            name="submit"
+            value="Try free for 7 days">
+        </form>
+        <p>
+          After the 7-day free trial period you will be able to continue
+          your subscription with one of our 3 pricing plans.
+        </p>
+        <a href="#pricing" class="link">&#8595; Compare all plans &#8595;</a>
+      </div>
+    </section>
+    <section id="video-section">
+      <!-- Video -->
+      <video id="video" width="600px" height="400px" controls muted>
+        <source src="./media/pexels_pavel_danilyuk_540p.mp4" type="video/mp4">
+        <p>Video not supported in your browser.</p>
+      </video>
+      <p id="video-caption">
+        Video by Pavel Danilyuk. Source:
+        <a
+          class="link"
+          href="Video by Pavel Danilyuk from Pexels: https://www.pexels.com/video/close-up-view-of-a-person-painting-6912160/"
+          target="_blank">
+          pexels.com
+        </a>
+      </p>
+    </section>
+    <section id="features">
+      <!-- Product features -->
+      <h2>Features</h2>
+      <div class="flexbox">
+        <div class="feature">
+          <img 
+            class="icon" 
+            src="./media/star-solid.svg" 
+            alt="" 
+            width="2rem" height="2rem">
+          <p>Learn from experts</p>
+          <p>
+            Subscribers get access to over 1000 video tutorials created by
+            professional artists and art teachers.
+          </p>
+        </div>
+        <div class="feature">
+          <img 
+            class="icon" 
+            src="./media/face-smile-solid.svg" 
+            alt="" 
+            width="2rem" height="2rem">
+          <p>Stay motivated</p>
+          <p>
+            Earn points by completing goals and challenges. Get inspired by
+            daily photos of various subjects to draw.
+          </p>
+        </div>
+        <div class="feature">
+          <img 
+            class="icon" 
+            src="./media/comments-solid.svg" 
+            alt="" 
+            width="2rem" height="2rem">
+          <p>Connect with others</p>
+          <p>
+            Join a community full of people just like you! Share your 
+            creations with others and get feedback from fellow artists.
+          </p>
+        </div>
+        <div class="feature">
+          <img 
+            class="icon" 
+            src="./media/pencil-solid.svg" 
+            alt="" 
+            width="2rem" height="2rem">
+          <p>Easy to start</p>
+          <p>
+            You don't need any special equipment. Use whatever you're most
+            comfortable with; just a pencil and a piece of paper is enough.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="reviews">
+      <!-- Reviews -->
+      <h2>Student Reviews</h2>
+      <img 
+            class="icon" 
+            src="./media/circle-user-solid.svg" 
+            alt="" 
+            width="2rem" height="2rem">
+      <div class="slideshow">
+        <blockquote class="review">
+          <p>
+            "Learning to draw with ArtLessons has been a great experience 
+            for me. The tutorials are fun to watch and explain everything 
+            in great detail. I was surprised to see how quickly my skills 
+            improved."
+          </p>
+          <cite>― John Doe</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>
+            "I always liked to draw, but thought I had no talent. Thanks to 
+            ArtLessons I found motivation to practice every day and gained
+            confidence to share my art."
+          </p>
+          <cite>― Jane Doe</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>
+            "I chose ArtLessons, because it has a vast offer of online lessons
+            and the platform makes it very easy to keep track of your progress."
+          </p>
+          <cite>― XYZ</cite>
+        </blockquote>
+      </div>
+      <div class="silde-controls">
+        <button class="dot" onclick="showReview(0)"></button>
+        <button class="dot" onclick="showReview(1)"></button>
+        <button class="dot" onclick="showReview(2)"></button>
+      </div>
+    </section>
+    <section id="pricing">
+      <!-- Pricing -->
+      <h2>Pricing</h2>
+      <div class="flexbox">
+        <div class="price-option">
+          <h3>Basic</h2>
+          <div>
+            <p>$8 /month</p>
+            <p>(billed monthly)</p>
+          </div>
+          <ul>
+            <li>access on 1 device at a time</li>
+            <li>2 hour per day streaming limit</li>
+            <li>10 GB storage</li>
+          </ul>
+          <a href="#signup" class="submit">Start free trial</a>
+        </div>
+        <div class="price-option">
+          <h3>Premium</h2>
+          <div>
+            <p>$12 /month</p>
+            <p>(billed monthly)</p>
+          </div>
+          <ul>
+            <li>access on up to 4 devices at a time</li>
+            <li>unlimited streaming</li>
+            <li>30 GB storage</li>
+          </ul>
+          <a href="#signup" class="submit">Start free trial</a>
+        </div>
+        <div class="price-option">
+          <h3>Premium Long</h2>
+          <div>
+            <p>$120 /year</p>
+            <p>(billed annually)</p>
+          </div>
+          <ul>
+            <li>everything in Premium</li>
+            <li>$24 discount on monthly plan</li>
+          </ul>
+          <a href="#signup" class="submit">Start free trial</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&#169; 2023 ArtLessons</p>
+    <p>Privacy Policy | Terms & Conditions</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
