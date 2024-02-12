@@ -1,0 +1,283 @@
+/* General */
+  * {
+    box-sizing: border-box;
+    /* remove default margins */
+    margin: 0;
+  }
+
+  html {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  body {
+    background-color: black;
+    color: white;
+    font-family: 'Baskerville', serif;
+  }
+
+/* Sections */
+  section {
+    overflow: auto;
+  }
+
+  section:nth-of-type(odd) {
+    background-color: #111;
+  }
+
+/* Headings and paragraphs */
+  h1, h2, .links, .text p:not(#tribute-dates) {
+    padding: 2rem 5vw;
+  }
+
+  #tribute-dates {
+    font-style: oblique;
+    padding: 0 5vw;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+/* Images */
+  img {
+    /* prevent images from overflowing */
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  /* Header image */
+    #header-image img, #header-image source {
+      float: right;
+      max-height: 1500px;
+      width: auto;
+    }
+
+    /* clearfix */
+    picture::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+
+  /* Other images and captions */
+    figure {
+      text-align: center;
+    }
+
+    figure img {
+      height: max(20vw, 20vh, 200px);
+      max-height: 800px;
+      vertical-align: middle;
+    }
+
+    figure img, figcaption {
+      /* width and position */
+      margin: 0 auto;
+      width: max(20vw, 20vh, 200px);
+      max-width: 800px;
+      /* border */
+      border: calc(0.4rem + 0.1vw) solid white;
+    }
+
+    figcaption {
+      background-color: white;
+      color: black;
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+    }
+
+/* Quotes */
+  .quote {
+    font-style: italic;
+    text-align: justify;
+  }
+
+  cite {
+    display: block;
+    text-align: right;
+    padding-top: 1rem;
+  }
+
+/* Links */
+  a {
+    /* layout and display */
+    display: block;
+    padding: 0.8rem;
+    margin: 0 auto 1.5rem;
+    /* text */
+    text-align: center;
+    text-decoration: none;
+    /* color and border */
+    background-color: #333;
+    color: white;
+    border-radius: 1rem;
+    box-shadow: inset 0 0 5px black;
+  }
+
+  a:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  a:hover, a:active {
+    background-color: #575757;
+  }
+
+  .underscore {
+    text-decoration: underline;
+  }
+
+/* Text sizes */
+  /* Text size - small screens */
+    @media screen and (max-width: 640px) and (max-height: 640px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p, a {
+        font-size: 1.1rem;
+        line-height: 1.2;
+      }
+
+      blockquote {
+        font-size: 1.2rem;
+      }
+    }
+  
+  /* Text size - medium screens */
+    @media screen and (min-width: 640px), (min-height: 640px) {
+      h1 {
+        font-size: 4.5rem;
+      }
+    
+      h2 {
+        font-size: 3rem;
+      }
+    
+      p, blockquote, figcaption, a {
+        font-size: calc(1rem + 0.5vw);
+        line-height: 1.5;
+      }
+    }
+  
+  /* Text size - large screens */
+    @media screen and (min-width: 1920px), (min-height: 1920px) {
+      h1 {
+        font-size: calc(7rem + 2vw);
+      }
+    
+      h2 {
+        font-size: calc(3rem + 2vw);
+      }
+    
+      p, cite, figcaption, a {
+        font-size: calc(1.5rem + 1vw);
+      }
+    }
+    
+    @media screen and (min-width: 2500px), (min-height: 2500px) {
+      h1, h2, .text, a {
+        line-height: 3;
+      }
+    }
+
+/* Layout */
+  /* Layout - mobile */
+    @media screen and (max-width: 768px), (max-aspect-ratio: 6/5) {
+      h1, h2, #tribute-dates {
+        text-align: center;
+      }
+
+      figure {
+        padding: 4rem 0;
+      }
+
+      blockquote {
+        padding: 4rem 20vw;
+      }
+
+      a {
+        width: 80%;
+      }
+    }
+
+  /* Layout - small screens */
+    @media screen and (max-width: 768px) and (max-height: 768px) {
+      section:not(#tribute-links) {
+        min-height: 100vh;
+      }
+
+      #header-image img, #header-image source {
+        height: 50vw;
+      }
+    }
+
+  /* Layout - tall screens */
+    @media screen and (min-width: 768px) and (max-aspect-ratio: 6/5) {
+      section:not(#tribute-links) {
+        min-height: 50vh;
+      }
+
+      #header-image img, #header-image source {
+        height: calc(50vw - 6.5rem);
+        max-width: 35%;
+      }
+
+      #tribute-info {
+        float: left;
+        width: 65%;
+      }
+    }
+
+  /* Layout - wide screens */
+    @media screen 
+    and (min-width: 768px) and (min-aspect-ratio: 6/5) {
+      section:not(#tribute-links) {
+        min-height: 80vh;
+      }
+
+      @media (min-aspect-ratio: 8/5) {
+        section:not(#tribute-links) {
+          min-height: 100vh;
+        }
+      }
+
+      #header-image img, #header-image source {
+        height: calc(100vh - 6.5rem);
+        max-width: 40%;
+      }
+
+      .text {
+        float: left;
+        width: 60%;
+      }
+
+      figure, blockquote {
+        float: right;
+        width: 40%;
+      }
+
+      figure {
+        padding-top: 2rem;
+      }
+
+      blockquote {
+        padding: 2rem 7vw;
+      }
+
+      a {
+        width: 45%;
+      }
+
+      a:nth-of-type(even) {
+        float: right;
+      }
+
+      a:nth-of-type(odd) {
+        float: left;
+      }
+    }
