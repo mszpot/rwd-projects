@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FCC || Tribute Page</title>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="author" content="Michalina Szpot">
+  <meta
+    name="description"
+    content="This is a Tribute Page project page for FreeCodeCamp's
+    Responsive Web Design certification.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <!-- Link to styles -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+<main id="main">
+  <!-- Header section -->
+  <header>
+    <h1 id="title">Marie Curie</h1>
+    <div class="text">
+      <p id="tribute-dates">
+        (1867 ― 1934)
+      </p>
+      <p id="tribute-info">
+        Her research on radioactivity was a scientific breakthrough,
+        earning her two Nobel Prizes in Physics and Chemistry. She
+        was not only a brilliant scientist, but also a modest,
+        generous and brave person who overcame social conventions
+        that were unfavourable to women at the time of her life.
+      </p>
+    </div>
+    <!-- Header image -->
+    <picture id="header-image">
+      <source 
+        srcset="./images/curie_header_lg.jpg 1200w"
+        media="(min-width: 2000px)">
+      <source
+        srcset="./images/curie_header_md.jpg 800w"
+        media="(min-width: 1000px)">
+      <source
+        srcset="./images/curie_header_sm.jpg 300w">
+      <img 
+        src="./images/curie_header_sm.jpg"
+        alt="Marie Curie"
+        height="389"
+        width="300">
+    </picture>
+  </header>
+  <!-- Section 1 -->
+  <section>
+    <h2>Early life</h2>
+    <div class="text"> 
+      <p>
+        Marie Curie (<span lang="fr">née</span> <span lang="pl">
+        Maria Skłodowska</span>) was the first person to win two 
+        Nobel Prizes, and the first woman to win a Nobel Prize. 
+        Born in Warsaw, Poland, in 1867 she was unable to pursue 
+        official higher education in her country due to her being 
+        a woman. After high school she studied at the Flying
+        University, an underground educational organization. 
+        In late 1891 she moved to Paris, where she earned 
+        two degrees in physical and mathematical sciences.
+      </p>
+    </div>
+    <!-- Section 1 image -->
+    <figure id="img-div">
+      <img 
+        id="img"
+        srcset="./images/curie_portrait_md 450w
+          ./images/curie_portrait_sm 200w"
+        src="./images/curie_portrait_sm.jpg"
+        alt="Marie Curie in a black dress"
+        height="222"
+        width="200">
+      <figcaption>
+        Marie Curie circa 1898
+      </figcaption>
+    </figure>
+  </section>
+  <!-- Section 2 -->
+  <section>
+    <h2>The First Nobel Prize</h2>
+    <div class="text">
+      <p>
+        In 1895 she married Pierre Curie, a fellow scientist, 
+        and took French citizenship. Researching radiation,
+        a phenomena discovered by <span lang="fr">Henri 
+        Becquerel</span>, they discovered two new elements 
+        - polonium and radium. Maria and Pierre Curie, 
+        together with <span lang="fr">Henri Becquerel</span> 
+        won the Nobel Prize in Physics in 1903. Marie was 
+        the first woman to win such an award.
+      </p>
+    </div>
+    <!-- Section 2 image -->
+    <figure>
+      <img
+        srcset="./images/curie_marriage_md 500w
+          ./images/curie_marriage_sm 250w"
+        src="./images/curie_marriage_sm.jpg"
+        alt="Marie Curie standing next to her husband"
+        height="282"
+        width="250">
+      <figcaption>
+        Marie and Pierre Curie
+      </figcaption>
+    </figure>
+  </section>
+  <!-- Section 3 -->
+  <section>
+    <h2>The Second Nobel Prize</h2>
+    <div class="text">
+      <p>
+        In 1906, after her husband's tragic death, Marie was offered
+        a position at the University of Paris, becoming its first
+        female professor in history. She studied radioactive
+        compounds and developed a process to isolate pure radium,
+        which earned her the Nobel Prize in Chemistry in 1911.
+        Marie was the first person to win two Nobel Prizes. She
+        decided not to patent the process of radium isolation to
+        facilitate further research for other scientists.
+      </p>
+    </div>
+    <!-- Section 3 quote -->
+    <blockquote>
+      <p class="quote">
+        "I am one of those who think like Nobel, that humanity 
+        will draw more good than evil from new discoveries."
+      </p>
+      <cite>― Marie Curie</cite>
+    </blockquote>
+  </section>
+  <!-- Section 4 -->
+  <section>
+    <h2>World War I</h2>
+    <div class="text">
+      <p>
+        During World War I Marie Curie helped save the lives of 
+        thousands of wounded soldiers by setting up radiological 
+        stations and donating mobile X-ray ambulances called
+        the <span lang="fr"><em>petites Curies</em></span> 
+        ("little Curies") to the army. She also conducted 
+        radiological training for lab assistants and medical 
+        students. Marie even used her Nobel Prize money to invest 
+        in war loans, not expecting or wanting to ever get it back.
+      </p>
+    </div>
+    <!-- Section 4 image -->
+    <figure>
+      <img
+        srcset="./images/curie_mobile_md 450w
+          ./images/curie_mobile_sm 250w"
+        src="./images/curie_mobile_sm.jpg"
+        alt="Marie Curie sitting inside one of X-ray ambulances"
+        height="215"
+        width="250">
+      <figcaption>
+        Mobile X-ray unit 
+        (<span lang="fr"><em>petite Curie</em></span>)
+      </figcaption>
+    </figure>
+  </section>
+  <!-- Section 5 -->
+  <section>
+    <h2>Post-war years</h2>
+    <div class="text">
+      <p>
+        Post war, Maria Curie continued her research on the 
+        chemistry of radioactive substances and their medical 
+        applications. Radium Institute (now Curie Institute) 
+        founded and led by Maria saw the rise of four more 
+        Nobelists, including her own daughter, <span lang="fr">
+        Irène</span>. In 1925, with Curie's help, a similar
+        institute was opened in Warsaw. Maria Curie died in 1934 
+        from aplastic anemia believed to be caused by exposure 
+        to radiation.
+      </p>
+    </div>
+    <!-- Section 5 quote -->
+    <blockquote>
+      <p class="quote">
+        "Life is not easy for any of us. But what of that? 
+        We must have perseverance and above all confidence 
+        in ourselves. We must believe that we are gifted 
+        for something and that this thing must be attained."
+      </p>
+      <cite>― Marie Curie</cite>
+    </blockquote>
+  </section>
+  <!-- Links to external pages -->
+  <section id="tribute-links">
+    <h2>Learn more</h2>
+    <div class="links">
+      <a 
+        href="https://en.wikipedia.org/wiki/Marie_Curie"
+        target="_blank"
+        id="tribute-link">
+        Article on 
+        <span class="underscore">wikipedia.org</span>
+      </a>
+      <a 
+        href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical"
+        target="_blank">
+        Biographical on 
+        <span class="underscore">nobelprize.org</span> 
+      </a>
+      <a 
+        href="https://www.goodreads.com/author/quotes/126903.Marie_Curie"
+        target="_blank">
+        More quotes on 
+        <span class="underscore">goodreads.com</span>
+      </a>
+      <a 
+        href="https://www.youtube.com/watch?v=w6JFRi0Qm_s"
+        target="_blank">
+        Short video on 
+        <span class="underscore">youtube.com</span>
+      </a>
+    </div>
+  </section>
+</main>
+</body>
+
+</html>
