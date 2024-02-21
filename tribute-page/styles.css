@@ -6,7 +6,7 @@
   }
 
   html {
-    font-size: 1rem;
+    font-size: calc(100% + 0.3vw);
     max-width: 100%;
   }
 
@@ -237,17 +237,11 @@
     @media screen 
     and (min-width: 768px) and (min-aspect-ratio: 6/5) {
       section:not(#tribute-links) {
-        min-height: 80vh;
-      }
-
-      @media (min-aspect-ratio: 8/5) {
-        section:not(#tribute-links) {
-          min-height: 100vh;
-        }
+        min-height: 70vh;
       }
 
       #header-image img, #header-image source {
-        height: calc(100vh - 6.5rem);
+        min-height: 50vh;
         max-width: 40%;
       }
 
