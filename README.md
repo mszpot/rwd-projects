@@ -1,5 +1,6 @@
 # Responsive Web Design Projects
-My first RWD Projects, inspired by [freeCodeCamp's Responsive Web Design Certification](https://www.freecodecamp.org/learn/2022/responsive-web-design/) projects.
+Projects initially created for [freeCodeCamp’s Responsive Web Design certification](https://www.freecodecamp.org/learn/2022/responsive-web-design/) 
+with some additional features, using only HTML, CSS and JavaScript.
 
 * [Product Landing Page](#product-landing-page)
 * [Technical Documentation Page](#technical-documentation-page)
